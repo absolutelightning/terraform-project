@@ -1,0 +1,211 @@
+import "strings"
+
+providers = {
+	"aws": {
+		"alias": "",
+		"config": {
+			"region": {
+				"constant_value": "us-west-2",
+			},
+		},
+		"full_name":           "registry.terraform.io/hashicorp/aws",
+		"module_address":      "",
+		"name":                "aws",
+		"provider_config_key": "aws",
+		"version_constraint":  "",
+	},
+}
+
+resources = {
+	"aws_cloudtrail.example": {
+		"address": "aws_cloudtrail.example",
+		"config": {
+			"include_global_service_events": {
+				"constant_value": false,
+			},
+			"name": {
+				"constant_value": "example",
+			},
+			"s3_bucket_name": {
+				"references": [
+					"module.s3_bucket[1].bucket_names[1]",
+					"module.s3_bucket[1].bucket_names",
+					"module.s3_bucket[1]",
+				],
+			},
+			"s3_key_prefix": {
+				"constant_value": "prefix",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "example",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_cloudtrail",
+	},
+	"module.s3_bucket.aws_s3_bucket_public_access_block.example_1": {
+		"address": "module.s3_bucket.aws_s3_bucket_public_access_block.example_1",
+		"config": {
+			"block_public_acls": {
+				"constant_value": true,
+			},
+			"block_public_policy": {
+				"constant_value": true,
+			},
+			"bucket": {
+				"references": [
+					"module.s3.bucket_names[0]",
+					"module.s3.bucket_names",
+					"module.s3",
+				],
+			},
+			"ignore_public_acls": {
+				"constant_value": false,
+			},
+			"restrict_public_buckets": {
+				"constant_value": true,
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.s3_bucket",
+		"name":                "example_1",
+		"provider_config_key": "module.s3_bucket:aws",
+		"provisioners":        [],
+		"type":                "aws_s3_bucket_public_access_block",
+	},
+	"module.s3_bucket.aws_s3_bucket_public_access_block.example_2": {
+		"address": "module.s3_bucket.aws_s3_bucket_public_access_block.example_2",
+		"config": {
+			"block_public_acls": {
+				"constant_value": true,
+			},
+			"block_public_policy": {
+				"constant_value": true,
+			},
+			"bucket": {
+				"references": [
+					"module.s3.bucket_names[1]",
+					"module.s3.bucket_names",
+					"module.s3",
+				],
+			},
+			"ignore_public_acls": {
+				"constant_value": false,
+			},
+			"restrict_public_buckets": {
+				"constant_value": true,
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.s3_bucket",
+		"name":                "example_2",
+		"provider_config_key": "module.s3_bucket:aws",
+		"provisioners":        [],
+		"type":                "aws_s3_bucket_public_access_block",
+	},
+	"module.s3_bucket.module.s3.aws_s3_bucket.example": {
+		"address": "module.s3_bucket.module.s3.aws_s3_bucket.example",
+		"config": {
+			"bucket": {
+				"references": [
+					"count.index",
+				],
+			},
+			"force_destroy": {
+				"constant_value": true,
+			},
+		},
+		"count": {
+			"constant_value": 2,
+		},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.s3_bucket.module.s3",
+		"name":                "example",
+		"provider_config_key": "module.s3_bucket.module.s3:aws",
+		"provisioners":        [],
+		"type":                "aws_s3_bucket",
+	},
+}
+
+provisioners = {}
+
+variables = {}
+
+outputs = {
+	"module.s3_bucket.module.s3:bucket_names": {
+		"depends_on":     [],
+		"description":    "",
+		"module_address": "module.s3_bucket.module.s3",
+		"name":           "bucket_names",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"aws_s3_bucket.example[0].id",
+				"aws_s3_bucket.example[0]",
+				"aws_s3_bucket.example",
+				"aws_s3_bucket.example[1].id",
+				"aws_s3_bucket.example[1]",
+				"aws_s3_bucket.example",
+			],
+		},
+	},
+	"module.s3_bucket:bucket_names": {
+		"depends_on":     [],
+		"description":    "",
+		"module_address": "module.s3_bucket",
+		"name":           "bucket_names",
+		"sensitive":      false,
+		"value": {
+			"references": [
+				"module.s3.bucket_names",
+				"module.s3",
+			],
+		},
+	},
+}
+
+module_calls = {
+	"module.s3_bucket:s3": {
+		"config":             {},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "module.s3_bucket",
+		"name":               "s3",
+		"source":             "./s3",
+		"version_constraint": "",
+	},
+	"s3_bucket": {
+		"config": {},
+		"count": {
+			"constant_value": 3,
+		},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "",
+		"name":               "s3_bucket",
+		"source":             "./s3_module",
+		"version_constraint": "",
+	},
+}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

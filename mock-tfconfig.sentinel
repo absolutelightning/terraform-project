@@ -1,0 +1,207 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"modules": {
+			"s3_bucket": {
+				"config":     {},
+				"references": {},
+				"source":     "./s3_module",
+				"version":    "",
+			},
+		},
+		"outputs": {},
+		"providers": {
+			"aws": {
+				"alias": {
+					"": {
+						"config": {
+							"region": "us-west-2",
+						},
+						"references": {
+							"region": [],
+						},
+						"version": "",
+					},
+				},
+				"config": {
+					"region": "us-west-2",
+				},
+				"references": {
+					"region": [],
+				},
+				"version": "",
+			},
+		},
+		"resources": {
+			"aws_cloudtrail": {
+				"example": {
+					"config": {
+						"include_global_service_events": false,
+						"name":          "example",
+						"s3_key_prefix": "prefix",
+					},
+					"provisioners": null,
+					"references": {
+						"include_global_service_events": [],
+						"name": [],
+						"s3_bucket_name": [
+							"module.s3_bucket[1].bucket_names[1]",
+							"module.s3_bucket[1].bucket_names",
+							"module.s3_bucket[1]",
+						],
+						"s3_key_prefix": [],
+					},
+				},
+			},
+		},
+		"variables": {},
+	},
+
+	"module.s3_bucket": {
+		"data": {},
+		"modules": {
+			"s3": {
+				"config":     {},
+				"references": {},
+				"source":     "./s3",
+				"version":    "",
+			},
+		},
+		"outputs": {
+			"bucket_names": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"module.s3.bucket_names",
+					"module.s3",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {
+			"aws_s3_bucket_public_access_block": {
+				"example_1": {
+					"config": {
+						"block_public_acls":       true,
+						"block_public_policy":     true,
+						"ignore_public_acls":      false,
+						"restrict_public_buckets": true,
+					},
+					"provisioners": null,
+					"references": {
+						"block_public_acls":   [],
+						"block_public_policy": [],
+						"bucket": [
+							"module.s3.bucket_names[0]",
+							"module.s3.bucket_names",
+							"module.s3",
+						],
+						"ignore_public_acls":      [],
+						"restrict_public_buckets": [],
+					},
+				},
+				"example_2": {
+					"config": {
+						"block_public_acls":       true,
+						"block_public_policy":     true,
+						"ignore_public_acls":      false,
+						"restrict_public_buckets": true,
+					},
+					"provisioners": null,
+					"references": {
+						"block_public_acls":   [],
+						"block_public_policy": [],
+						"bucket": [
+							"module.s3.bucket_names[1]",
+							"module.s3.bucket_names",
+							"module.s3",
+						],
+						"ignore_public_acls":      [],
+						"restrict_public_buckets": [],
+					},
+				},
+			},
+		},
+		"variables": {},
+	},
+
+	"module.s3_bucket.module.s3": {
+		"data":    {},
+		"modules": {},
+		"outputs": {
+			"bucket_names": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"aws_s3_bucket.example[0].id",
+					"aws_s3_bucket.example[0]",
+					"aws_s3_bucket.example",
+					"aws_s3_bucket.example[1].id",
+					"aws_s3_bucket.example[1]",
+					"aws_s3_bucket.example",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {
+			"aws_s3_bucket": {
+				"example": {
+					"config": {
+						"force_destroy": true,
+					},
+					"provisioners": null,
+					"references": {
+						"bucket": [
+							"count.index",
+						],
+						"force_destroy": [],
+					},
+				},
+			},
+		},
+		"variables": {},
+	},
+}
+
+module_paths = [
+	[],
+	[
+		"s3_bucket",
+	],
+	[
+		"s3_bucket",
+		"s3",
+	],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs

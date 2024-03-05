@@ -1,0 +1,29 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_cloudtrail.example (expand)" [label = "aws_cloudtrail.example", shape = "box"]
+		"[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)" [label = "module.s3_bucket.aws_s3_bucket_public_access_block.example_1", shape = "box"]
+		"[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)" [label = "module.s3_bucket.aws_s3_bucket_public_access_block.example_2", shape = "box"]
+		"[root] module.s3_bucket.module.s3.aws_s3_bucket.example (expand)" [label = "module.s3_bucket.module.s3.aws_s3_bucket.example", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_cloudtrail.example (expand)" -> "[root] module.s3_bucket.output.bucket_names (expand)"
+		"[root] module.s3_bucket (close)" -> "[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)"
+		"[root] module.s3_bucket (close)" -> "[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)"
+		"[root] module.s3_bucket (close)" -> "[root] module.s3_bucket.module.s3 (close)"
+		"[root] module.s3_bucket (close)" -> "[root] module.s3_bucket.output.bucket_names (expand)"
+		"[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)" -> "[root] module.s3_bucket.module.s3.output.bucket_names (expand)"
+		"[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)" -> "[root] module.s3_bucket.module.s3.output.bucket_names (expand)"
+		"[root] module.s3_bucket.module.s3 (close)" -> "[root] module.s3_bucket.module.s3.output.bucket_names (expand)"
+		"[root] module.s3_bucket.module.s3 (expand)" -> "[root] module.s3_bucket (expand)"
+		"[root] module.s3_bucket.module.s3.aws_s3_bucket.example (expand)" -> "[root] module.s3_bucket.module.s3 (expand)"
+		"[root] module.s3_bucket.module.s3.aws_s3_bucket.example (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] module.s3_bucket.module.s3.output.bucket_names (expand)" -> "[root] module.s3_bucket.module.s3.aws_s3_bucket.example (expand)"
+		"[root] module.s3_bucket.output.bucket_names (expand)" -> "[root] module.s3_bucket.module.s3.output.bucket_names (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudtrail.example (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)"
+		"[root] root" -> "[root] module.s3_bucket (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}

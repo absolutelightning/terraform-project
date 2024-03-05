@@ -1,0 +1,70 @@
+aws_cloudtrail.example - *terraform.NodeApplyableResourceInstance
+  aws_cloudtrail.example (expand) - *terraform.nodeExpandApplyableResource
+aws_cloudtrail.example (expand) - *terraform.nodeExpandApplyableResource
+  module.s3_bucket.output.bucket_names (expand) - *terraform.nodeExpandOutput
+module.s3_bucket (close) - *terraform.nodeCloseModule
+  module.s3_bucket.module.s3 (close) - *terraform.nodeCloseModule
+  module.s3_bucket.output.bucket_names (expand) - *terraform.nodeExpandOutput
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+module.s3_bucket (expand) - *terraform.nodeExpandModule
+module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand) - *terraform.nodeExpandApplyableResource
+  module.s3_bucket.module.s3.output.bucket_names (expand) - *terraform.nodeExpandOutput
+module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand) - *terraform.nodeExpandApplyableResource
+  module.s3_bucket.module.s3.output.bucket_names (expand) - *terraform.nodeExpandOutput
+module.s3_bucket.module.s3 (close) - *terraform.nodeCloseModule
+  module.s3_bucket.module.s3.output.bucket_names (expand) - *terraform.nodeExpandOutput
+module.s3_bucket.module.s3 (expand) - *terraform.nodeExpandModule
+  module.s3_bucket (expand) - *terraform.nodeExpandModule
+module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+  module.s3_bucket.module.s3 (expand) - *terraform.nodeExpandModule
+  provider["registry.terraform.io/hashicorp/aws"] - *terraform.NodeApplyableProvider
+module.s3_bucket.module.s3.output.bucket_names (expand) - *terraform.nodeExpandOutput
+  module.s3_bucket[0].module.s3.aws_s3_bucket.example[0] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[0].module.s3.aws_s3_bucket.example[1] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[1].module.s3.aws_s3_bucket.example[0] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[1].module.s3.aws_s3_bucket.example[1] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[2].module.s3.aws_s3_bucket.example[0] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[2].module.s3.aws_s3_bucket.example[1] - *terraform.NodeApplyableResourceInstance
+module.s3_bucket.output.bucket_names (expand) - *terraform.nodeExpandOutput
+  module.s3_bucket.module.s3.output.bucket_names (expand) - *terraform.nodeExpandOutput
+module.s3_bucket[0].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[0].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[0].module.s3.aws_s3_bucket.example[0] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[0].module.s3.aws_s3_bucket.example[1] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[1].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[1].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[1].module.s3.aws_s3_bucket.example[0] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[1].module.s3.aws_s3_bucket.example[1] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[2].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[2].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[2].module.s3.aws_s3_bucket.example[0] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+module.s3_bucket[2].module.s3.aws_s3_bucket.example[1] - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand) - *terraform.nodeExpandApplyableResource
+provider["registry.terraform.io/hashicorp/aws"] - *terraform.NodeApplyableProvider
+provider["registry.terraform.io/hashicorp/aws"] (close) - *terraform.graphNodeCloseProvider
+  aws_cloudtrail.example - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_1 - *terraform.NodeApplyableResourceInstance
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_2 - *terraform.NodeApplyableResourceInstance
+root - *terraform.nodeCloseModule
+  module.s3_bucket (close) - *terraform.nodeCloseModule
+  provider["registry.terraform.io/hashicorp/aws"] (close) - *terraform.graphNodeCloseProvider

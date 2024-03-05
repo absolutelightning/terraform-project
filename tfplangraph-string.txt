@@ -1,0 +1,70 @@
+aws_cloudtrail.example
+  aws_cloudtrail.example (expand)
+aws_cloudtrail.example (expand)
+  module.s3_bucket.output.bucket_names (expand)
+module.s3_bucket (close)
+  module.s3_bucket.module.s3 (close)
+  module.s3_bucket.output.bucket_names (expand)
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_2
+module.s3_bucket (expand)
+module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)
+  module.s3_bucket.module.s3.output.bucket_names (expand)
+module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)
+  module.s3_bucket.module.s3.output.bucket_names (expand)
+module.s3_bucket.module.s3 (close)
+  module.s3_bucket.module.s3.output.bucket_names (expand)
+module.s3_bucket.module.s3 (expand)
+  module.s3_bucket (expand)
+module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+  module.s3_bucket.module.s3 (expand)
+  provider["registry.terraform.io/hashicorp/aws"]
+module.s3_bucket.module.s3.output.bucket_names (expand)
+  module.s3_bucket[0].module.s3.aws_s3_bucket.example[0]
+  module.s3_bucket[0].module.s3.aws_s3_bucket.example[1]
+  module.s3_bucket[1].module.s3.aws_s3_bucket.example[0]
+  module.s3_bucket[1].module.s3.aws_s3_bucket.example[1]
+  module.s3_bucket[2].module.s3.aws_s3_bucket.example[0]
+  module.s3_bucket[2].module.s3.aws_s3_bucket.example[1]
+module.s3_bucket.output.bucket_names (expand)
+  module.s3_bucket.module.s3.output.bucket_names (expand)
+module.s3_bucket[0].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)
+module.s3_bucket[0].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)
+module.s3_bucket[0].module.s3.aws_s3_bucket.example[0]
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+module.s3_bucket[0].module.s3.aws_s3_bucket.example[1]
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+module.s3_bucket[1].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)
+module.s3_bucket[1].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)
+module.s3_bucket[1].module.s3.aws_s3_bucket.example[0]
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+module.s3_bucket[1].module.s3.aws_s3_bucket.example[1]
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+module.s3_bucket[2].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_1 (expand)
+module.s3_bucket[2].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket.aws_s3_bucket_public_access_block.example_2 (expand)
+module.s3_bucket[2].module.s3.aws_s3_bucket.example[0]
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+module.s3_bucket[2].module.s3.aws_s3_bucket.example[1]
+  module.s3_bucket.module.s3.aws_s3_bucket.example (expand)
+provider["registry.terraform.io/hashicorp/aws"]
+provider["registry.terraform.io/hashicorp/aws"] (close)
+  aws_cloudtrail.example
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket[0].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket[1].aws_s3_bucket_public_access_block.example_2
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_1
+  module.s3_bucket[2].aws_s3_bucket_public_access_block.example_2
+root
+  module.s3_bucket (close)
+  provider["registry.terraform.io/hashicorp/aws"] (close)
